@@ -6,7 +6,7 @@
     should not be used in real environment. Do your own diligence before deploying any smart contracts
     to the blockchain because once deployed, you cannot modify the contract.
 */
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.17;
 
 contract EtherWallet {
     address payable public owner;

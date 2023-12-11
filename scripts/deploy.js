@@ -4,14 +4,16 @@
 // You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
+
 const hre = require("hardhat");
 
 async function main() {
-  const EtherWallet = await hre.ethers.deployContract("EtherWallet");
+  const EtherWallet = await hre.ethers.getContractFactory("EtherWallet");
+  const etherWallet = await EtherWallet.deploy();
 
-  await EtherWallet.waitForDeployment();
+  await etherWallet.deployed();
 
-  console.log(`Ether Wallet contract deployed to  ${EtherWallet.address}`);
+  console.log(`Ether Wallet contract deployed to  ${etherWallet.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
